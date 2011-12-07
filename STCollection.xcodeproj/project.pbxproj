@@ -13,6 +13,9 @@
 		248A9BEA148F1DD700361E87 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BD2148F1DD700361E87 /* Cocoa.framework */; };
 		248A9BED148F1DD700361E87 /* STCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BCF148F1DD700361E87 /* STCollection.framework */; };
 		248A9BF3148F1DD700361E87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248A9BF1148F1DD700361E87 /* InfoPlist.strings */; };
+		248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 248A9C02148F1FC900361E87 /* NSArray+STCollection.h */; };
+		248A9C05148F1FC900361E87 /* NSArray+STCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C03148F1FC900361E87 /* NSArray+STCollection.m */; };
+		248A9C18148F22EC00361E87 /* NSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C17148F22EC00361E87 /* NSArrayTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		248A9BE8148F1DD700361E87 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		248A9BF0148F1DD700361E87 /* STCollectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "STCollectionTests-Info.plist"; sourceTree = "<group>"; };
 		248A9BF2148F1DD700361E87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		248A9C02148F1FC900361E87 /* NSArray+STCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+STCollection.h"; sourceTree = "<group>"; };
+		248A9C03148F1FC900361E87 /* NSArray+STCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+STCollection.m"; sourceTree = "<group>"; };
+		248A9C17148F22EC00361E87 /* NSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 		248A9BD8148F1DD700361E87 /* STCollection */ = {
 			isa = PBXGroup;
 			children = (
+				248A9C02148F1FC900361E87 /* NSArray+STCollection.h */,
+				248A9C03148F1FC900361E87 /* NSArray+STCollection.m */,
 				248A9BD9148F1DD700361E87 /* Supporting Files */,
 			);
 			path = STCollection;
@@ -122,6 +130,7 @@
 		248A9BEE148F1DD700361E87 /* STCollectionTests */ = {
 			isa = PBXGroup;
 			children = (
+				248A9C17148F22EC00361E87 /* NSArrayTests.m */,
 				248A9BEF148F1DD700361E87 /* Supporting Files */,
 			);
 			path = STCollectionTests;
@@ -143,6 +152,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248A9C05148F1FC900361E87 /* NSArray+STCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248A9C18148F22EC00361E87 /* NSArrayTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +422,7 @@
 				248A9BFB148F1DD700361E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		248A9BFC148F1DD700361E87 /* Build configuration list for PBXNativeTarget "STCollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +431,7 @@
 				248A9BFE148F1DD700361E87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
