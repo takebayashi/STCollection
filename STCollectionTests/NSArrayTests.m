@@ -48,6 +48,23 @@
                nil];
 }
 
+- (void)testReverse {
+    NSArray *expected = [NSArray arrayWithObjects:
+                         @"Lion",
+                         @"Snow Leopard",
+                         @"Leopard",
+                         @"Tiger",
+                         @"Panther",
+                         @"Jaguar",
+                         @"Puma",
+                         @"Cheetah",
+                         nil];
+    NSArray *reversed = [_source reversedArray];
+    STAssertEqualObjects(reversed,
+                         expected,
+                         @"Testing -[NSArray reversedArray]");
+}
+
 - (void)testMap {
     NSArray *expected = [NSArray arrayWithObjects:
                          @"Mac OS X Cheetah",
