@@ -24,6 +24,10 @@
 // POSSIBILITY OF SUCH DAMAGE.
 // 
 
-#import <STCollection/NSArray+STCollection.h>
-#import <STCollection/NSDictionary+STCollection.h>
-#import <STCollection/NSIndexSet+STCollection.h>
+#import <Foundation/Foundation.h>
+
+@interface NSDictionary (STCollection)
+
+- (NSDictionary *)mappedDictionaryUsingBlock:(id (^)(id key, id value))block;
+
+@end

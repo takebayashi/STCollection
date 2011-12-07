@@ -24,6 +24,35 @@
 // POSSIBILITY OF SUCH DAMAGE.
 // 
 
-#import <STCollection/NSArray+STCollection.h>
+#import <SenTestingKit/SenTestingKit.h>
 #import <STCollection/NSDictionary+STCollection.h>
-#import <STCollection/NSIndexSet+STCollection.h>
+
+@interface NSDictionaryTests : SenTestCase {
+    NSDictionary *_source;
+}
+
+@end
+
+@implementation NSDictionaryTests
+
+- (void)setUp {
+    _source = [NSDictionary dictionaryWithObjectsAndKeys:
+               @"OSX", @"Mac",
+               @"iOS", @"iPhone",
+               nil];
+}
+
+- (void)testMap {
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"Mac/OSX", @"Mac",
+                              @"iPhone/iOS", @"iPhone",
+                              nil];
+    NSDictionary *mapped = [_source mappedDictionaryUsingBlock:^id(id key, id value) {
+        return [NSString stringWithFormat:@"%@/%@", key, value];
+    }];
+    STAssertEqualObjects(mapped,
+                         expected,
+                         @"Testing -[NSDictionary mappedDictionaryUsingBlock:]");
+}
+
+@end
