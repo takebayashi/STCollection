@@ -65,6 +65,18 @@
                          @"Testing -[NSArray reversedArray]");
 }
 
+- (void)testFlatten {
+    NSArray *source = [NSArray arrayWithObjects:
+                       [_source subarrayWithRange:NSMakeRange(0, 5)],
+                       [_source subarrayWithRange:NSMakeRange(5, 3)],
+                       nil];
+    NSArray *expected = _source;
+    NSArray *flattened = [source flattenedArray];
+    STAssertEqualObjects(flattened,
+                         expected,
+                         @"Testing -[NSArray flattenedArray]");
+}
+
 - (void)testMap {
     NSArray *expected = [NSArray arrayWithObjects:
                          @"Mac OS X Cheetah",
