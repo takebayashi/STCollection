@@ -96,4 +96,44 @@
                          @"Testing -[NSArray groupedDictionaryUsingBlock:]");
 }
 
+- (void)testFold {
+    // foldLeft
+    NSString *leftExpected = @"PB/Cheetah/Puma/Jaguar/Panther/Tiger/Leopard/Snow Leopard/Lion";
+    NSString *leftReduced = [_source valueByFoldingFromLeftWithInitialValue:@"PB"
+                                                                 usingBlock:^id(id left, id right) {
+                                                                     return [(NSString *)left stringByAppendingFormat:@"/%@", right];
+                                                                 }];
+    STAssertEqualObjects(leftReduced,
+                         leftExpected,
+                         @"Testing -[NSArray valueByFoldingFromLeftWithInitialValue:usingBlock:]");
+    // foldRight
+    NSString *rightExpected = @"iOS/Lion/Snow Leopard/Leopard/Tiger/Panther/Jaguar/Puma/Cheetah";
+    NSString *rightReduced = [_source valueByFoldingFromRightWithInitialValue:@"iOS"
+                                                                   usingBlock:^id(id right, id left) {
+                                                                       return [(NSString *)right stringByAppendingFormat:@"/%@", left];
+                                                                   }];
+    STAssertEqualObjects(rightReduced,
+                         rightExpected,
+                         @"Testing -[NSArray valueByFoldingFromRightWithInitialValue:usingBlock:]");
+}
+
+- (void)testReduce {
+    // reduceLeft
+    NSString *leftExpected = @"Cheetah/Puma/Jaguar/Panther/Tiger/Leopard/Snow Leopard/Lion";
+    NSString *leftReduced = [_source valueByReducingFromLeftUsingBlock:^id(id left, id right) {
+        return [(NSString *)left stringByAppendingFormat:@"/%@", right];
+    }];
+    STAssertEqualObjects(leftReduced,
+                         leftExpected,
+                         @"Testing -[NSArray valueByReducingFromLeftUsingBlock:]");
+    // reduceRight
+    NSString *rightExpected = @"Lion/Snow Leopard/Leopard/Tiger/Panther/Jaguar/Puma/Cheetah";
+    NSString *rightReduced = [_source valueByReducingFromRightUsingBlock:^id(id right, id left) {
+        return [(NSString *)right stringByAppendingFormat:@"/%@", left];
+    }];
+    STAssertEqualObjects(rightReduced,
+                         rightExpected,
+                         @"Testing -[NSArray valueByReducingFromRightUsingBlock:]");
+}
+
 @end
