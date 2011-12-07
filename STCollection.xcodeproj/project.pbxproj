@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2407363E148F6AEF00C8FFAD /* STCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2407363D148F6AEF00C8FFAD /* STCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		248A9BD3148F1DD700361E87 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BD2148F1DD700361E87 /* Cocoa.framework */; };
 		248A9BDD148F1DD700361E87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248A9BDB148F1DD700361E87 /* InfoPlist.strings */; };
 		248A9BE9148F1DD700361E87 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BE8148F1DD700361E87 /* SenTestingKit.framework */; };
 		248A9BEA148F1DD700361E87 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BD2148F1DD700361E87 /* Cocoa.framework */; };
 		248A9BED148F1DD700361E87 /* STCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248A9BCF148F1DD700361E87 /* STCollection.framework */; };
 		248A9BF3148F1DD700361E87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248A9BF1148F1DD700361E87 /* InfoPlist.strings */; };
-		248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 248A9C02148F1FC900361E87 /* NSArray+STCollection.h */; };
+		248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 248A9C02148F1FC900361E87 /* NSArray+STCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		248A9C05148F1FC900361E87 /* NSArray+STCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C03148F1FC900361E87 /* NSArray+STCollection.m */; };
 		248A9C18148F22EC00361E87 /* NSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C17148F22EC00361E87 /* NSArrayTests.m */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2407363D148F6AEF00C8FFAD /* STCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollection.h; sourceTree = "<group>"; };
 		248A9BCF148F1DD700361E87 /* STCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		248A9BD2148F1DD700361E87 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		248A9BD5148F1DD700361E87 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -110,6 +112,7 @@
 		248A9BD8148F1DD700361E87 /* STCollection */ = {
 			isa = PBXGroup;
 			children = (
+				2407363D148F6AEF00C8FFAD /* STCollection.h */,
 				248A9C02148F1FC900361E87 /* NSArray+STCollection.h */,
 				248A9C03148F1FC900361E87 /* NSArray+STCollection.m */,
 				248A9BD9148F1DD700361E87 /* Supporting Files */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */,
+				2407363E148F6AEF00C8FFAD /* STCollection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
