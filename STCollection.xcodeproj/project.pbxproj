@@ -43,6 +43,7 @@
 		24073656148F848000C8FFAD /* NSDictionary+STCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+STCollection.h"; sourceTree = "<group>"; };
 		24073657148F848000C8FFAD /* NSDictionary+STCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+STCollection.m"; sourceTree = "<group>"; };
 		2407365B148F871000C8FFAD /* NSDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryTests.m; sourceTree = "<group>"; };
+		24073663148F89DE00C8FFAD /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		248A9BCF148F1DD700361E87 /* STCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		248A9BD2148F1DD700361E87 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		248A9BD5148F1DD700361E87 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +86,7 @@
 		248A9BC3148F1DD700361E87 = {
 			isa = PBXGroup;
 			children = (
+				24073663148F89DE00C8FFAD /* README.markdown */,
 				248A9BD8148F1DD700361E87 /* STCollection */,
 				248A9BEE148F1DD700361E87 /* STCollectionTests */,
 				248A9BD1148F1DD700361E87 /* Frameworks */,
