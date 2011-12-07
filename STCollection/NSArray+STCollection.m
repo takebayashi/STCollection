@@ -99,8 +99,7 @@
 }
 
 - (id)valueByReducingFromRightUsingBlock:(id (^)(id right, id left))block {
-    NSArray *array = [[self reverseObjectEnumerator] allObjects];
-    return [array valueByReducingFromLeftUsingBlock:block];
+    return [[self reversedArray] valueByReducingFromLeftUsingBlock:block];
 }
 
 @end
