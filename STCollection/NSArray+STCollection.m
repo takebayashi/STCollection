@@ -32,6 +32,14 @@
     return [[self reverseObjectEnumerator] allObjects];
 }
 
+- (NSArray *)flattenedArray {
+    NSMutableArray *flattened = [NSMutableArray array];
+    for (NSArray *subarray in self) {
+        [flattened addObjectsFromArray:subarray];
+    }
+    return flattened;
+}
+
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block {
     NSMutableArray *mappedArray = [NSMutableArray arrayWithCapacity:[self count]];
     for (id item in self) {
