@@ -15,6 +15,7 @@
 		248A9BF3148F1DD700361E87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248A9BF1148F1DD700361E87 /* InfoPlist.strings */; };
 		248A9C04148F1FC900361E87 /* NSArray+STCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 248A9C02148F1FC900361E87 /* NSArray+STCollection.h */; };
 		248A9C05148F1FC900361E87 /* NSArray+STCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C03148F1FC900361E87 /* NSArray+STCollection.m */; };
+		248A9C18148F22EC00361E87 /* NSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248A9C17148F22EC00361E87 /* NSArrayTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		248A9BF2148F1DD700361E87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		248A9C02148F1FC900361E87 /* NSArray+STCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+STCollection.h"; sourceTree = "<group>"; };
 		248A9C03148F1FC900361E87 /* NSArray+STCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+STCollection.m"; sourceTree = "<group>"; };
+		248A9C17148F22EC00361E87 /* NSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		248A9BEE148F1DD700361E87 /* STCollectionTests */ = {
 			isa = PBXGroup;
 			children = (
+				248A9C17148F22EC00361E87 /* NSArrayTests.m */,
 				248A9BEF148F1DD700361E87 /* Supporting Files */,
 			);
 			path = STCollectionTests;
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248A9C18148F22EC00361E87 /* NSArrayTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
