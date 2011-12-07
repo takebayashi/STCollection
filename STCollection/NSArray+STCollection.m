@@ -53,6 +53,7 @@
         NSMutableArray *values = [dictionary objectForKey:key];
         if (!values) {
             values = [NSMutableArray array];
+            [dictionary setObject:values forKey:key];
         }
         [values addObject:item];
     }
