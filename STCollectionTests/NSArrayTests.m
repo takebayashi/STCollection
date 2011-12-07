@@ -27,23 +27,28 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "NSArray+STCollection.h"
 
-@interface NSArrayTests : SenTestCase
+@interface NSArrayTests : SenTestCase {
+    NSArray *_source;
+}
 
 @end
 
 @implementation NSArrayTests
 
+- (void)setUp {
+    _source = [[NSArray alloc] initWithObjects:
+               @"Cheetah",
+               @"Puma",
+               @"Jaguar",
+               @"Panther",
+               @"Tiger",
+               @"Leopard",
+               @"Snow Leopard",
+               @"Lion",
+               nil];
+}
+
 - (void)testMap {
-    NSArray *source = [NSArray arrayWithObjects:
-                            @"Cheetah",
-                            @"Puma",
-                            @"Jaguar",
-                            @"Panther",
-                            @"Tiger",
-                            @"Leopard",
-                            @"Snow Leopard",
-                            @"Lion",
-                            nil];
     NSArray *expected = [NSArray arrayWithObjects:
                               @"Mac OS X Cheetah",
                               @"Mac OS X Puma",
@@ -54,12 +59,23 @@
                               @"Mac OS X Snow Leopard",
                               @"Mac OS X Lion",
                               nil];
-    NSArray *mapped = [source arrayByMappingUsingBlock:^id(id object) {
+    NSArray *mapped = [_source arrayByMappingUsingBlock:^id(id object) {
         return [@"Mac OS X " stringByAppendingString:object];
     }];
     STAssertEqualObjects(mapped,
                          expected,
                          @"Testing -[NSArray arrayByMappingUsingBlock:]");
+}
+
+- (void)testFilter {
+    NSArray *expected = [NSArray arrayWithObjects:
+                         @"Leopard", @"Snow Leopard", @"Lion", nil];
+    NSArray *filtered = [_source filteredArrayUsingBlock:^BOOL(id object) {
+        return [(NSString *)object rangeOfString:@"L"].location != NSNotFound;
+    }];
+    STAssertEqualObjects(filtered,
+                         expected,
+                         @"Testing -[NSArray filteredArrayUsingBlock:]");
 }
 
 @end

@@ -29,5 +29,6 @@
 @interface NSArray (STCollection)
 
 - (NSArray *)arrayByMappingUsingBlock:(id (^)(id object))block;
+- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
 
 @end
