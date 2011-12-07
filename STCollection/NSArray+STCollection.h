@@ -31,5 +31,11 @@
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block;
 - (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
 - (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block;
+- (id)valueByFoldingFromLeftWithInitialValue:(id)value
+                                  usingBlock:(id (^)(id left, id right))block;
+- (id)valueByFoldingFromRightWithInitialValue:(id)value
+                                   usingBlock:(id (^)(id right, id left))block;
+- (id)valueByReducingFromLeftUsingBlock:(id (^)(id left, id right))block;
+- (id)valueByReducingFromRightUsingBlock:(id (^)(id right, id left))block;
 
 @end

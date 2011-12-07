@@ -60,4 +60,35 @@
     return dictionary;
 }
 
+- (id)valueByFoldingFromLeftWithInitialValue:(id)value
+                                  usingBlock:(id (^)(id left, id right))block {
+    NSArray *array = [[NSArray arrayWithObject:value] arrayByAddingObjectsFromArray:self];
+    return [array valueByReducingFromLeftUsingBlock:block];
+}
+
+- (id)valueByFoldingFromRightWithInitialValue:(id)value
+                                   usingBlock:(id (^)(id right, id left))block {
+    NSArray *array = [self arrayByAddingObject:value];
+    return [array valueByReducingFromRightUsingBlock:block];
+}
+
+- (id)valueByReducingFromLeftUsingBlock:(id (^)(id left, id right))block {
+    id result;
+    for (NSUInteger i = 0; i < self.count; i++) {
+        id item = [self objectAtIndex:i];
+        if (i == 0) {
+            result = item;
+        }
+        else {
+            result = block(result, item);
+        }
+    }
+    return result;
+}
+
+- (id)valueByReducingFromRightUsingBlock:(id (^)(id right, id left))block {
+    NSArray *array = [[self reverseObjectEnumerator] allObjects];
+    return [array valueByReducingFromLeftUsingBlock:block];
+}
+
 @end
