@@ -78,4 +78,22 @@
                          @"Testing -[NSArray filteredArrayUsingBlock:]");
 }
 
+- (void)testGroup {
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [_source subarrayWithRange:NSMakeRange(0, 5)], @"PowerPC",
+                              [_source subarrayWithRange:NSMakeRange(5, 3)], @"Intel",
+                              nil];
+    NSDictionary *grouped = [_source groupedDictionaryUsingBlock:^id(id object) {
+        if ([(NSString *)object isEqualToString:@"Leopard"] ||
+            [(NSString *)object isEqualToString:@"Snow Leopard"] ||
+            [(NSString *)object isEqualToString:@"Lion"]) {
+            return @"Intel";
+        }
+        return @"PowerPC";
+    }];
+    STAssertEqualObjects(grouped,
+                         expected,
+                         @"Testing -[NSArray groupedDictionaryUsingBlock:]");
+}
+
 @end
