@@ -28,7 +28,7 @@
 
 @implementation NSArray (STCollection)
 
-- (NSArray *)arrayByMappingUsingBlock:(id (^)(id object))block {
+- (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block {
     NSMutableArray *mappedArray = [NSMutableArray arrayWithCapacity:[self count]];
     for (id item in self) {
         [mappedArray addObject:block(item)];

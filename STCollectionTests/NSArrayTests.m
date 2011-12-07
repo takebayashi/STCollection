@@ -50,21 +50,21 @@
 
 - (void)testMap {
     NSArray *expected = [NSArray arrayWithObjects:
-                              @"Mac OS X Cheetah",
-                              @"Mac OS X Puma",
-                              @"Mac OS X Jaguar",
-                              @"Mac OS X Panther",
-                              @"Mac OS X Tiger",
-                              @"Mac OS X Leopard",
-                              @"Mac OS X Snow Leopard",
-                              @"Mac OS X Lion",
-                              nil];
-    NSArray *mapped = [_source arrayByMappingUsingBlock:^id(id object) {
+                         @"Mac OS X Cheetah",
+                         @"Mac OS X Puma",
+                         @"Mac OS X Jaguar",
+                         @"Mac OS X Panther",
+                         @"Mac OS X Tiger",
+                         @"Mac OS X Leopard",
+                         @"Mac OS X Snow Leopard",
+                         @"Mac OS X Lion",
+                         nil];
+    NSArray *mapped = [_source mappedArrayUsingBlock:^id(id object) {
         return [@"Mac OS X " stringByAppendingString:object];
     }];
     STAssertEqualObjects(mapped,
                          expected,
-                         @"Testing -[NSArray arrayByMappingUsingBlock:]");
+                         @"Testing -[NSArray mappedArrayUsingBlock:]");
 }
 
 - (void)testFilter {
