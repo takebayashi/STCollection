@@ -36,4 +36,14 @@
     return mappedArray;
 }
 
+- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block {
+    NSMutableArray *filteredArray = [NSMutableArray arrayWithCapacity:[self count]];
+    for (id item in self) {
+        if (block(item)) {
+            [filteredArray addObject:item];
+        }
+    }
+    return filteredArray;
+}
+
 @end
