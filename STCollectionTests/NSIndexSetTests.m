@@ -39,6 +39,17 @@
     _source = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)];
 }
 
+- (void)testIndexes {
+    NSArray *indexes = [_source indexes];
+    NSMutableArray *expected = [NSMutableArray arrayWithCapacity:10];
+    for (NSUInteger i = 0; i < 10; i++) {
+        [expected addObject:[NSNumber numberWithUnsignedInteger:i]];
+    }
+    STAssertEqualObjects(indexes,
+                         expected,
+                         @"Testing -[NSIndexSet indexes]");
+}
+
 - (void)testMap {
     NSMutableIndexSet *expected = [NSMutableIndexSet indexSet];
     for (NSUInteger i = 0; i < 10; i++) {

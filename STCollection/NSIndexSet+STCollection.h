@@ -28,6 +28,7 @@
 
 @interface NSIndexSet (STCollection)
 
+- (NSArray *)indexes;
 - (NSIndexSet *)mappedIndexSetUsingBlock:(NSUInteger (^)(NSUInteger index))block;
 
 @end

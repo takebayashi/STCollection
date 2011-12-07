@@ -28,6 +28,14 @@
 
 @implementation NSIndexSet (STCollection)
 
+- (NSArray *)indexes {
+    NSMutableArray *indexes = [NSMutableArray array];
+    [self enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        [indexes addObject:[NSNumber numberWithUnsignedInteger:index]];
+    }];
+    return indexes;
+}
+
 - (NSIndexSet *)mappedIndexSetUsingBlock:(NSUInteger (^)(NSUInteger index))block {
     NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
     [self enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
