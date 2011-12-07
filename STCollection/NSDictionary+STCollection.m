@@ -24,6 +24,16 @@
 // POSSIBILITY OF SUCH DAMAGE.
 // 
 
-#import <STCollection/NSArray+STCollection.h>
-#import <STCollection/NSDictionary+STCollection.h>
-#import <STCollection/NSIndexSet+STCollection.h>
+#import "NSDictionary+STCollection.h"
+
+@implementation NSDictionary (STCollection)
+
+- (NSDictionary *)mappedDictionaryUsingBlock:(id (^)(id, id))block {
+    NSMutableDictionary *mapped = [NSMutableDictionary dictionaryWithCapacity:[self count]];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+        [mapped setObject:block(key, object) forKey:key];
+    }];
+    return mapped;
+}
+
+@end
