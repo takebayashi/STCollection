@@ -28,6 +28,10 @@
 
 @implementation NSArray (STCollection)
 
+- (NSArray *)reversedArray {
+    return [[self reverseObjectEnumerator] allObjects];
+}
+
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block {
     NSMutableArray *mappedArray = [NSMutableArray arrayWithCapacity:[self count]];
     for (id item in self) {
