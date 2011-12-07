@@ -30,5 +30,6 @@
 
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block;
 - (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
+- (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block;
 
 @end
