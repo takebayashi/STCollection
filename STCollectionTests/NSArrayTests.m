@@ -25,7 +25,7 @@
 // 
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "NSArray+STCollection.h"
+#import <STCollection/NSArray+STCollection.h>
 
 @interface NSArrayTests : SenTestCase {
     NSArray *_source;

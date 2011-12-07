@@ -25,3 +25,4 @@
 // 
 
 #import <STCollection/NSArray+STCollection.h>
+#import <STCollection/NSIndexSet+STCollection.h>
