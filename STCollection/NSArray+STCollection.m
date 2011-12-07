@@ -46,4 +46,17 @@
     return filteredArray;
 }
 
+- (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:[self count]];
+    for (id item in self) {
+        id key = block(item);
+        NSMutableArray *values = [dictionary objectForKey:key];
+        if (!values) {
+            values = [NSMutableArray array];
+        }
+        [values addObject:item];
+    }
+    return dictionary;
+}
+
 @end
