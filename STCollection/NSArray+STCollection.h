@@ -28,18 +28,58 @@
 
 @interface NSArray (STCollection)
 
+/*!
+ * @discussion  [A, B, C] => [C, B, A]
+ */
 - (NSArray *)reversedArray;
+
+/*!
+ * @discussion  [[A, B, C], [D, E]] => [A, B, C, D, E]
+ */
 - (NSArray *)flattenedArray;
+
+/*!
+ * @discussion  [A, B, C] f() => [f(A), f(B), f(C)]
+ */
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block;
+
 - (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
+
+/*!
+ * @discussion  [A, B, C] f() => {D = [A, B], E = [C]}
+ */
 - (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block;
+
+/*!
+ * @discussion  [A, B, C] [D, E, F] => [[A, D], [B, E], [C, F]]
+ */
 - (NSArray *)zippedArrayWithArray:(NSArray *)array;
+
+/*!
+ * @discussion  [[A, D], [B, E], [C, F]] => [A, B, C] [D, E, F]
+ */
 - (NSArray *)unzippedArray;
+
+/*!
+ * @discussion  [A, B, C] Z f() => f[C, f[B, f[A, Z]]]
+ */
 - (id)valueByFoldingFromLeftWithInitialValue:(id)value
                                   usingBlock:(id (^)(id left, id right))block;
+
+/*!
+ * @discussion  [A, B, C] Z f() => f[f[f[Z, C], B], A]
+ */
 - (id)valueByFoldingFromRightWithInitialValue:(id)value
                                    usingBlock:(id (^)(id right, id left))block;
+
+/*!
+ * @discussion  [A, B, C] f() => f[C, f[B, A]]
+ */
 - (id)valueByReducingFromLeftUsingBlock:(id (^)(id left, id right))block;
+
+/*!
+ * @discussion  [A, B, C] f() => f[f[C, B], A]
+ */
 - (id)valueByReducingFromRightUsingBlock:(id (^)(id right, id left))block;
 
 @end

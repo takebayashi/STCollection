@@ -29,6 +29,10 @@
 @interface NSIndexSet (STCollection)
 
 - (NSArray *)indexes;
+
+/*!
+ * @discussion  {A = B, C = D, E = F} f() => {A = f(B), C = f(D), E = f(F)}
+ */
 - (NSIndexSet *)mappedIndexSetUsingBlock:(NSUInteger (^)(NSUInteger index))block;
 
 @end
