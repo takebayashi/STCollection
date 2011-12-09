@@ -28,12 +28,36 @@
 
 @implementation NSDictionary (STCollection)
 
+- (BOOL)hasKey:(id)key {
+    return [self objectForKey:key] != nil;
+}
+
+- (NSDictionary *)dictionaryByAddingObject:(id)object forKey:(id)key {
+    NSMutableDictionary *added = [NSMutableDictionary dictionaryWithDictionary:self];
+    [added setObject:object forKey:key];
+    return added;
+}
+
+- (NSDictionary *)dictionaryByAddingObject:(id)object forUndefinedKey:(id)key {
+    return [self hasKey:key] ? self : [self dictionaryByAddingObject:object forKey:key];
+}
+
 - (NSDictionary *)mappedDictionaryUsingBlock:(id (^)(id, id))block {
     NSMutableDictionary *mapped = [NSMutableDictionary dictionaryWithCapacity:[self count]];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
         [mapped setObject:block(key, object) forKey:key];
     }];
     return mapped;
+}
+
+- (NSDictionary *)filteredDictionaryUsingBlock:(BOOL (^)(id, id))block {
+    NSMutableDictionary *filtered = [NSMutableDictionary dictionary];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+        if (block(key, object)) {
+            [filtered setObject:object forKey:key];
+        }
+    }];
+    return filtered;
 }
 
 @end

@@ -42,6 +42,31 @@
                nil];
 }
 
+- (void)testKey {
+    STAssertTrue([_source hasKey:@"Mac"],
+                 @"Testing -[NSDictionary hasKey:]");
+    STAssertFalse([_source hasKey:@"Pipin"],
+                  @"Testing -[NSDictionary hasKey:]");
+}
+
+- (void)testAdd {
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"OSX", @"Mac",
+                              @"iOS", @"iPhone",
+                              @"Atmark", @"Pipin",
+                              nil];
+    NSDictionary *added1 = [_source dictionaryByAddingObject:@"Atmark"
+                                             forUndefinedKey:@"Pipin"];
+    STAssertEqualObjects(added1,
+                         expected,
+                         @"Testing -[NSDictionary dictionaryByAddingObject:forUndefinedKey:");
+    NSDictionary *added2 = [added1 dictionaryByAddingObject:@"None"
+                                             forUndefinedKey:@"Pipin"];
+    STAssertEqualObjects(added2,
+                         expected,
+                         @"Testing -[NSDictionary dictionaryByAddingObject:forUndefinedKey:");
+}
+
 - (void)testMap {
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
                               @"Mac/OSX", @"Mac",
