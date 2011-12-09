@@ -72,6 +72,31 @@
     return dictionary;
 }
 
+- (NSArray *)zippedArrayWithArray:(NSArray *)array {
+    NSArray *zipped = [NSArray array];
+    for (NSUInteger i = 0; i < [self count]; i++) {
+        @autoreleasepool {
+            id key = [self objectAtIndex:i];
+            id value = [array objectAtIndex:i];
+            NSArray *pair = [NSArray arrayWithObjects:key, value, nil];
+            zipped = [zipped arrayByAddingObject:pair];
+        }
+    }
+    return zipped;
+}
+
+- (NSArray *)unzippedArray {
+    NSArray *a = [NSArray array];
+    NSArray *b = [NSArray array];
+    for (NSArray *pair in self) {
+        @autoreleasepool {
+            a = [a arrayByAddingObject:[pair objectAtIndex:0]];
+            b = [b arrayByAddingObject:[pair objectAtIndex:1]];
+        }
+    }
+    return [NSArray arrayWithObjects:a, b, nil];
+}
+
 - (id)valueByFoldingFromLeftWithInitialValue:(id)value
                                   usingBlock:(id (^)(id left, id right))block {
     NSArray *array = [[NSArray arrayWithObject:value] arrayByAddingObjectsFromArray:self];

@@ -33,6 +33,8 @@
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block;
 - (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
 - (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block;
+- (NSArray *)zippedArrayWithArray:(NSArray *)array;
+- (NSArray *)unzippedArray;
 - (id)valueByFoldingFromLeftWithInitialValue:(id)value
                                   usingBlock:(id (^)(id left, id right))block;
 - (id)valueByFoldingFromRightWithInitialValue:(id)value
