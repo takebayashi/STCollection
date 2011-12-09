@@ -1,0 +1,14 @@
+Vendor::Spec.new do |s|
+
+  s.name         "STCollection"
+  s.version      "1.0.0"
+
+  s.authors      "takebayashi"
+  s.email        "shun@takebayashi.asia"
+  s.description  "Useful categories for Cocoa collection classes"
+
+  s.source         "https://github.com/takebayashi/STCollection"
+
+  s.files        `git ls-files`.split("\n")
+
+end
