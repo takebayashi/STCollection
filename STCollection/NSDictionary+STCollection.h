@@ -28,6 +28,10 @@
 
 @interface NSDictionary (STCollection)
 
+- (BOOL)hasKey:(id)key;
+- (NSDictionary *)dictionaryByAddingObject:(id)object forKey:(id)key;
+- (NSDictionary *)dictionaryByAddingObject:(id)object forUndefinedKey:(id)key;
 - (NSDictionary *)mappedDictionaryUsingBlock:(id (^)(id key, id value))block;
+- (NSDictionary *)filteredDictionaryUsingBlock:(BOOL (^)(id key, id value))block;
 
 @end

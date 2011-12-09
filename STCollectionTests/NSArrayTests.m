@@ -125,6 +125,36 @@
                          @"Testing -[NSArray groupedDictionaryUsingBlock:]");
 }
 
+- (void)testZip {
+    // zip
+    NSArray *target = [NSArray arrayWithObjects:
+                       @"10.0", 
+                       @"10.1", 
+                       @"10.2", 
+                       @"10.3", 
+                       @"10.4", 
+                       @"10.5", 
+                       @"10.6", 
+                       @"10.7",
+                       nil];
+    NSArray *zipped = [_source zippedArrayWithArray:target];
+    for (NSUInteger i = 0; i < [zipped count]; i++) {
+        NSArray *extecped = [NSArray arrayWithObjects:
+                         [_source objectAtIndex:i],
+                         [target objectAtIndex:i],
+                         nil];
+        STAssertEqualObjects([zipped objectAtIndex:i],
+                             extecped,
+                             @"Testing pair of -[NSArray zippedArrayWithArray:]");
+    }
+    // unzip
+    NSArray *unzipped = [zipped unzippedArray];
+    NSArray *expectedUnzipped = [NSArray arrayWithObjects:_source, target, nil];
+    STAssertEqualObjects(unzipped,
+                         expectedUnzipped,
+                         @"Testing -[NSArray unzippedArray]");
+}
+
 - (void)testFold {
     // foldLeft
     NSString *leftExpected = @"PB/Cheetah/Puma/Jaguar/Panther/Tiger/Leopard/Snow Leopard/Lion";
