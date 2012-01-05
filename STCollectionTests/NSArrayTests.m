@@ -48,6 +48,22 @@
                nil];
 }
 
+- (void)testRemove {
+    NSArray *expected = [[NSArray alloc] initWithObjects:
+                         @"Cheetah",
+                         @"Puma",
+                         @"Jaguar",
+                         @"Panther",
+                         @"Tiger",
+                         @"Leopard",
+                         @"Lion",
+                         nil];
+    NSArray *removed = [_source arrayByRemovingObject:@"Snow Leopard"];
+    STAssertEqualObjects(removed,
+                         expected,
+                         @"Testing -[NSArray arrayByRemovingObject:]");
+}
+
 - (void)testReverse {
     NSArray *expected = [NSArray arrayWithObjects:
                          @"Lion",

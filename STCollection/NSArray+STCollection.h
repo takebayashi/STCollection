@@ -29,6 +29,11 @@
 @interface NSArray (STCollection)
 
 /*!
+ * @discussion  [A, B, C] => [A, C]
+ */
+- (NSArray *)arrayByRemovingObject:(id)object;
+
+/*!
  * @discussion  [A, B, C] => [C, B, A]
  */
 - (NSArray *)reversedArray;
