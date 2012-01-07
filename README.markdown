@@ -17,11 +17,14 @@ The following features are supported in v1.0.0:
     * fold right
     * reduce left
     * reduce right
+    * etc.
 * Dictionary
     * map
     * filter
+    * etc.
 * Index Set
     * map
+    * etc.
 
 ## License
 [The BSD License](http://www.opensource.org/licenses/bsd-license.php)

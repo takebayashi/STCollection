@@ -28,10 +28,58 @@
 
 @interface NSDictionary (STCollection)
 
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              BOOL result = [dictionary hasKey:@"D"]; // NO
+ *              </pre>
+ */
 - (BOOL)hasKey:(id)key;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              NSDictionary *result = [dictionary dictionaryByAddingObject:@"H"
+ *                                                                   forKey:@"G"]; // {A = B, C = D, E = F, G = H}
+ *              </pre>
+ */
 - (NSDictionary *)dictionaryByAddingObject:(id)object forKey:(id)key;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              NSDictionary *result1 = [dictionary dictionaryByAddingObject:@"H"
+ *                                                           forUndefinedKey:@"G"]; // {A = B, C = D, E = F, G = H}
+ *              NSDictionary *result2 = [dictionary dictionaryByAddingObject:@"X"
+ *                                                           forUndefinedKey:@"G"]; // {A = B, C = D, E = F, G = H}
+ *                                                                                  // G is already defined!
+ *              </pre>
+ */
 - (NSDictionary *)dictionaryByAddingObject:(id)object forUndefinedKey:(id)key;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              NSDictionary *result = [dictionary mappedDictionaryUsingBlock:^id(id key, id value) {
+ *                  return [key stringByAppendingString:value];
+ *              }]; // {A = AB, C = CD, E = EF}
+ *              </pre>
+ */
 - (NSDictionary *)mappedDictionaryUsingBlock:(id (^)(id key, id value))block;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              NSDictionary *result = [dictionary filteredDictionaryUsingBlock:^BOOL(id key, id value) {
+ *                  return ![key isEqualToString:"C"];
+ *              }]; // {A = B, E = F}
+ *              </pre>
+ */
 - (NSDictionary *)filteredDictionaryUsingBlock:(BOOL (^)(id key, id value))block;
 
 @end
