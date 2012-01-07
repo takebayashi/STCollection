@@ -29,56 +29,129 @@
 @interface NSArray (STCollection)
 
 /*!
- * @discussion  [A, B, C] => [C, B, A]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              NSArray *result = [array arrayByRemovingObject:@"B"]; // [A, C]
+ *              </pre>
+ */
+- (NSArray *)arrayByRemovingObject:(id)object;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              NSArray *result = [array reversedArray]; // [C, B, A]
+ *              </pre>
  */
 - (NSArray *)reversedArray;
 
 /*!
- * @discussion  [[A, B, C], [D, E]] => [A, B, C, D, E]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [[A, B, C], [D, E]]
+ *              NSArray *result = [array flattenedArray]; // [A, B, C, D, E]
+ *              </pre>
  */
 - (NSArray *)flattenedArray;
 
 /*!
- * @discussion  [A, B, C] f() => [f(A), f(B), f(C)]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              NSArray *result = [array mappedArrayUsingBlock:^id(id object){
+ *                  return [object stringByAppendingString:object];
+ *              }]; // [AA, BB, CC]
+ *              </pre>
  */
 - (NSArray *)mappedArrayUsingBlock:(id (^)(id object))block;
 
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              NSArray *result = [array filteredArrayUsingBlock:^BOOL(id object){
+ *                  return ![object isEqualToString:@"B"];
+ *              }]; // [A, C]
+ *              </pre>
+ */
 - (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id object))block;
 
 /*!
- * @discussion  [A, B, C] f() => {D = [A, B], E = [C]}
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              NSDictionary *result = [array groupedDictionaryUsingBlock:^id(id object){
+ *                  return [object isEqualToString:@"A"] ? @"D" : @"E"];
+ *              }]; // {D = [A], E = [B, C]}
+ *              </pre>
  */
 - (NSDictionary *)groupedDictionaryUsingBlock:(id (^)(id object))block;
 
 /*!
- * @discussion  [A, B, C] [D, E, F] => [[A, D], [B, E], [C, F]]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array1 = ...; // [A, B, C]
+ *              NSArray *array2 = ...; // [D, E, F]
+ *              NSArray *result = [array1 zippedArrayWithArray:array2]; // [[A, D], [B, E], [C, F]]
+ *              </pre>
  */
 - (NSArray *)zippedArrayWithArray:(NSArray *)array;
 
 /*!
- * @discussion  [[A, D], [B, E], [C, F]] => [A, B, C] [D, E, F]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [[A, D], [B, E], [C, F]]
+ *              NSArray *result = [array unzippedArray]; // [A, B, C, D, E, F]
+ *              </pre>
  */
 - (NSArray *)unzippedArray;
 
 /*!
- * @discussion  [A, B, C] Z f() => f[C, f[B, f[A, Z]]]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              id result = [array valueByFoldingFromLeftWithInitialValue:@"Z"
+ *                                                             usingBlock:^id(id left, id right) {
+ *                  return [left stringByAppendingString:right];
+ *              }]; // ZABC
+ *              </pre>
  */
 - (id)valueByFoldingFromLeftWithInitialValue:(id)value
                                   usingBlock:(id (^)(id left, id right))block;
 
 /*!
- * @discussion  [A, B, C] Z f() => f[f[f[Z, C], B], A]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              id result = [array valueByFoldingFromRightWithInitialValue:@"Z"
+ *                                                              usingBlock:^id(id right, id left) {
+ *                  return [right stringByAppendingString:left];
+ *              }]; // ZCBA
+ *              </pre>
  */
 - (id)valueByFoldingFromRightWithInitialValue:(id)value
                                    usingBlock:(id (^)(id right, id left))block;
 
 /*!
- * @discussion  [A, B, C] f() => f[C, f[B, A]]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              id result = [array valueByReducingFromLeftUsingBlock:^id(id left, id right) {
+ *                  return [left stringByAppendingString:right];
+ *              }]; ABC
+ *              </pre>
  */
 - (id)valueByReducingFromLeftUsingBlock:(id (^)(id left, id right))block;
 
 /*!
- * @discussion  [A, B, C] f() => f[f[C, B], A]
+ * @discussion  Example:
+ *              <pre>
+ *              NSArray *array = ...; // [A, B, C]
+ *              id result = [array valueByReducingFromRightUsingBlock:^id(id right, id left) {
+ *                  return [right stringByAppendingString:left];
+ *              }]; // CBA
+ *              </pre>
  */
 - (id)valueByReducingFromRightUsingBlock:(id (^)(id right, id left))block;
 

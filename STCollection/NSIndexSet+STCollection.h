@@ -28,10 +28,24 @@
 
 @interface NSIndexSet (STCollection)
 
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSIndexSet *indexSet = ...; // [1, 2, 3]
+ *              indexSet *result = [indexSet indexes]; // [1, 2, 3]
+ *                                                     // As array
+ *              </pre>
+ */
 - (NSArray *)indexes;
 
 /*!
- * @discussion  {A = B, C = D, E = F} f() => {A = f(B), C = f(D), E = f(F)}
+ * @discussion  Example:
+ *              <pre>
+ *              NSIndexSet *indexSet = ...; // [1, 2, 3]
+ *              indexSet *result = [indexSet mappedIndexSetUsingBlock:^NSUInteger(NSUInteger i) {
+ *                  return i * 2;
+ *              }]; // [2, 4, 6]
+ *              </pre>
  */
 - (NSIndexSet *)mappedIndexSetUsingBlock:(NSUInteger (^)(NSUInteger index))block;
 

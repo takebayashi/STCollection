@@ -28,6 +28,12 @@
 
 @implementation NSArray (STCollection)
 
+- (NSArray *)arrayByRemovingObject:(id)object {
+    return [self filteredArrayUsingBlock:^BOOL(id item) {
+        return ![item isEqual:object];
+    }];
+}
+
 - (NSArray *)reversedArray {
     return [[self reverseObjectEnumerator] allObjects];
 }
