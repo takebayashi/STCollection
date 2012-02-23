@@ -50,6 +50,10 @@
     return mapped;
 }
 
+- (NSArray *)mappedArrayUsingBlock:(id (^)(id, id))block {
+    return [[self mappedDictionaryUsingBlock:block] allValues];
+}
+
 - (NSDictionary *)filteredDictionaryUsingBlock:(BOOL (^)(id, id))block {
     NSMutableDictionary *filtered = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
