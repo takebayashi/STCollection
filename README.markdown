@@ -3,7 +3,7 @@ STCollection is the useful categories for Cocoa collection classes.
 
 ## Features
 
-The following features are supported in v1.1.0:
+The following features are supported in v1.2.0:
 
 * Array
     * reverse
