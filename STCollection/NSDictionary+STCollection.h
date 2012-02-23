@@ -75,6 +75,17 @@
  * @discussion  Example:
  *              <pre>
  *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
+ *              NSArray *results = [dictionary mappedArrayUsingBlock:^id(id key, id value) {
+ *                  return [key stringByAppendingString:value];
+ *              }]; // [AB, CD, EF]
+ *              </pre>
+ */
+- (NSArray *)mappedArrayUsingBlock:(id (^)(id key, id value))block;
+
+/*!
+ * @discussion  Example:
+ *              <pre>
+ *              NSDictionary *dictionary = ...; // {A = B, C = D, E = F}
  *              NSDictionary *result = [dictionary filteredDictionaryUsingBlock:^BOOL(id key, id value) {
  *                  return ![key isEqualToString:"C"];
  *              }]; // {A = B, E = F}
